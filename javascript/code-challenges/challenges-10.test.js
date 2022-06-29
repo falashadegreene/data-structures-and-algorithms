@@ -9,6 +9,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str){
   // Solution code here...
+  return str.split('').splice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,6 +51,15 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let totalSum = 0;
+
+  matrix.forEach( btwnArr => {
+    btwnArr.forEach(number => {
+      totalSum += number;
+    });
+  });
+
+  return totalSum;
 };
 
 
@@ -77,8 +87,19 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let Totals =[];
 
+  for(let i = 0;  i < stores[0].length; i++) {
+  let sum = 0;
+  for(let j = 0; j < stores.length; j++) {
+    sum += stores [j][i];
+  }
+   Totals.push(sum);
+ }
+   return Totals;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -92,6 +113,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let newArr = [];
+  data.forEach((sale, idx) => {
+    newArr.push({ sales: `${sale} cookies`, time: hours[idx]});
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,6 +143,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
