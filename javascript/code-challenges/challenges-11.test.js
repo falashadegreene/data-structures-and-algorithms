@@ -20,7 +20,8 @@ Becomes:
 
 function transformToLis(obj){
   // Solution code here...
-  let transform =
+  let arr = `<li>${object.entries(obj)}<li>`;
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,8 +38,8 @@ const count = (target, input) => {
   // Solution code here...
   let counter = 0;
   input.map(arr => {
-    arr.forEach(num => num === target?counter++:counter);
-  });
+    arr.forEach(num => num === target? counter++:counter);
+  })
   return counter;
 };
 
@@ -54,6 +55,9 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let values = 0;
+  input.map(arr => arr.forEach(number => values += number));
+  return values;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,6 +74,10 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map(innerArr => {
+    return innerArr.filter(element => typeof element === 'number' && element % 5 === 0)
+      .map(filteredElem => Math.pow(2, filteredElem));
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +144,9 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.filter(person => person.gender.includes('male'))
+  .map(character => character.name)
+  .join('and');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,6 +157,7 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  return data.reduce((shortest, nextCharacter)=> shortest.height < +nextCharacter.height ? shortest : nextCharacter).name;
 };
 
 /* ------------------------------------------------------------------------------------------------
