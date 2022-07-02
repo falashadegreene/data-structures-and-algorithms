@@ -12,6 +12,8 @@ Write a function named screenForNames that takes in an array of strings and uses
 
 const screenForNames = (arr) => {
   // Solution code here...
+  let regex = /^((Mr)|(Mrs)|(Ms)|(Dr))\.\s[a-zA-Z]+/;
+  return arr.filter(str => regex.test(str));
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +26,9 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
-  return arr.map(string.replace[0].string[0].toUpperCase());
+  return arr.map(str => {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,7 +104,18 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  const luke = arr.find(char => char.name = 'Luke Skywalker');
+
+  return arr
+    .filter(char => parseInt(char.mass) > parseInt(luke.mass))
+    .reduce((str, currentChar, i, arr) => {
+      i === arr.length - 1
+        ? str += currentChar.name
+        : str += currentChar.name + ' - ';
+      return str;
+    }, '');
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -118,6 +133,20 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  return arr.sort((a,b) => {
+    const aVal = a[property];
+    const bVal = b[property];
+
+    if (aVal < bVal) {
+      return -1;
+    } else if (aVal > bVal) {
+      return 1;
+    } else {
+      return 0;
+    }
+
+  });
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,6 +163,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  let reg = /^(https:\/\/)/;
+  return reg.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,6 +188,14 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  let helpCheck = (set) => {
+    return set.every(cell => cell !== '' && cell === set[0])
+    ? true
+    : false;
+  };
+  // let set = [board[0][0], board[1][0], board[2][0]];
+  // console.log(set);
+  // console.log(helpCheck(set));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -245,3 +284,4 @@ describe('Testing challenge 6', () => {
     expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
   });
 });
+
