@@ -1,3 +1,6 @@
+from data_structures.binary_tree import Node
+
+
 class LinkedList:
     """
     Put docstring here
