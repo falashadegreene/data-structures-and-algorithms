@@ -53,3 +53,4 @@ def test_in_range():
     assert 0 <= index1 <= hashtable.size
     assert 0 <= index2 <= hashtable.size
     assert 0 <= index3 <= hashtable.size
+

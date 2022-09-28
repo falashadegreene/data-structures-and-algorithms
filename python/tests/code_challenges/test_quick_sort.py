@@ -2,14 +2,14 @@
 #
 # from code_challenges.quick_sort import quick_sort
 #
-#
+# # @pytest.mark.skip("TODO")
 # def test_quick_sort():
 #     list = [2, 4, 3, 6, 1]
 #     actual = quick_sort(list)
 #     expected = [1, 2, 3, 4, 6]
 #     assert actual == expected
 #
-#
+# # @pytest.mark.skip("TODO")
 # def test_quick_sort2():
 #     list = [-5, 10, 3, 5]
 #     actual = quick_sort(list)
