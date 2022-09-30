@@ -1,12 +1,12 @@
-import pytest
 from data_structures.graph import Graph
 
 
+# @pytest.mark.skip("TODO")
 def test_exists():
     assert Graph
 
 
-@pytest.mark.skip("TODO")
+# @pytest.mark.skip("TODO")
 def test_bfs(graph):
     nodes = graph.get_nodes()
     root = nodes[0]
@@ -18,7 +18,7 @@ def test_bfs(graph):
     # DANGER: Metroville/Monstropolis could be switched as well as Narnia/Naboo and still be valid BFS. What to do?
 
 
-@pytest.fixture
+# @pytest.fixture
 def graph():
 
     realms = Graph()
