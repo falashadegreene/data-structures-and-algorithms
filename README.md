@@ -24,3 +24,7 @@ To run your tests
 
 
 - [Arrary Reverse](python/docs/array_reverse/README.md)
+
+- [Arrary insert shift](python/docs/array-insert-shift/README.md)
+
+- [Arrary binary search](python/docs/array-binary-search/README.md)
