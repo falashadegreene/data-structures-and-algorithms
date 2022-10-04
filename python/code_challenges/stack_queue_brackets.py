@@ -1,24 +1,21 @@
+from data_structures.queue import Queue
 
-from data_structures.stack import Stack
+opening = ["[","{","("]
+closing = ["]","}",")"]
 
-
-def multi_bracket_validation(string):
-    brackets = Stack()
-    brackets_dictionary = {
-        ')': '(',
-        ']': '[',
-        '}': '{'
-    }
-
-    for char in string:
-        if char == '[' or char == '{' or char == '(':
-            brackets.push(char)
-        if brackets_dictionary.get(char):
-            if not brackets.peek():
-                return False
-            pop = brackets.pop()
-            if brackets_dictionary(char) != pop:
-                return False
-    if not brackets.is_empty():
-        return False
-    return True
+def multi_bracket_validation(myStr):
+        stack = []
+        for i in myStr:
+            if i in opening:
+                stack.append(i)
+            elif i in closing:
+                pos = closing.index(i)
+                if ((len(stack) > 0) and
+                        (opening[pos] == stack[len(stack) - 1])):
+                    stack.pop()
+                else:
+                    return False
+        if len(stack) == 0:
+            return True
+        else:
+            return False
